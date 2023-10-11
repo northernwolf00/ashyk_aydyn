@@ -1,7 +1,5 @@
-import 'package:ashyk_aydyn_com/src/screens/initial/model/file_model.dart';
-
-import 'package:ashyk_aydyn_com/src/screens/initial/repositorys/file_repository.dart';
-
+import 'package:ashyk_aydyn_com/src/model/file_model.dart';
+import 'package:ashyk_aydyn_com/src/repositorys/file_repository.dart';
 import 'package:flutter/material.dart';
 
 class FileProvider with ChangeNotifier {

@@ -1,5 +1,5 @@
-import 'package:ashyk_aydyn_com/src/screens/initial/repositorys/catigorys.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/model/initial_model.dart';
+import 'package:ashyk_aydyn_com/src/model/initial_model.dart';
+import 'package:ashyk_aydyn_com/src/repositorys/catigorys.dart';
 import 'package:flutter/material.dart';
 
 class InitialProvider with ChangeNotifier {

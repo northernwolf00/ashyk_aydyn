@@ -1,5 +1,5 @@
-import 'package:ashyk_aydyn_com/src/screens/initial/model/new_videos_model.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/repositorys/new_videos_repository.dart';
+import 'package:ashyk_aydyn_com/src/model/new_videos_model.dart';
+import 'package:ashyk_aydyn_com/src/repositorys/new_videos_repository.dart';
 import 'package:flutter/material.dart';
 
 class NewVideosProvider with ChangeNotifier {

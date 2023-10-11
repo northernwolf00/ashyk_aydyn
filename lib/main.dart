@@ -1,10 +1,9 @@
 import 'package:ashyk_aydyn_com/src/bottom_nav/bottom_nav_screen.dart';
 import 'package:ashyk_aydyn_com/src/core/language_delegates.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/providers/file_provider.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/providers/intial_provider.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/providers/new_videos_provider.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/providers/subcaigory_provider.dart';
-
+import 'package:ashyk_aydyn_com/src/providers/file_provider.dart';
+import 'package:ashyk_aydyn_com/src/providers/intial_provider.dart';
+import 'package:ashyk_aydyn_com/src/providers/new_videos_provider.dart';
+import 'package:ashyk_aydyn_com/src/providers/subcaigory_provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

@@ -1,5 +1,5 @@
-import 'package:ashyk_aydyn_com/src/screens/initial/model/subcatigory_model.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/repositorys/subcatigoey_repository.dart';
+import 'package:ashyk_aydyn_com/src/model/subcatigory_model.dart';
+import 'package:ashyk_aydyn_com/src/repositorys/subcatigoey_repository.dart';
 import 'package:flutter/material.dart';
 
 class SubcatigoeyProvider with ChangeNotifier {
@@ -11,7 +11,7 @@ class SubcatigoeyProvider with ChangeNotifier {
 
   Future<void> fetchSubcatigory(int id) async {
     final result = await useCase.fetchData(id);
-    print(result);
+
     isLoading = true;
     notifyListeners();
     if (result.statusCode == 200) {
