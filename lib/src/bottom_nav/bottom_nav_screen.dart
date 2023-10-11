@@ -1,8 +1,7 @@
-import 'package:ashyk_aydyn_com/src/screens/about/about.dart';
 import 'package:ashyk_aydyn_com/src/screens/catigory/catigory.dart';
 import 'package:ashyk_aydyn_com/src/screens/initial/initial.dart';
 import 'package:ashyk_aydyn_com/src/screens/singers/singers.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';

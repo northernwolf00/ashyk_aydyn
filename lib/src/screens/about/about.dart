@@ -1,5 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
 
 class AboutUs extends StatefulWidget {
   const AboutUs({super.key});
@@ -11,6 +10,6 @@ class AboutUs extends StatefulWidget {
 class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold();
   }
 }
