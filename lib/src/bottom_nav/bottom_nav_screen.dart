@@ -43,8 +43,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   List page = [
     const Initial(),
-    const Carygoryes(),
     const Singers(),
+    const Carygoryes(),
     // const AboutUs(),
   ];
 

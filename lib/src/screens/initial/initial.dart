@@ -36,30 +36,6 @@ class _InitialState extends State<Initial> {
   Widget build(BuildContext context) {
     // final myViewModel = context.watch<InitialProvider>();
     // final newVideos = context.watch<NewVideosProvider>();
-    return Scaffold(
-      body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 200,
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  // physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 9,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black)),
-                      width: 100,
-                      child: index == 7 ? Icon(Icons.abc) : Text('data'),
-                    );
-                  }),
-            ),
-          ],
-        ),
-      )),
-    );
+    return const Scaffold();
   }
 }
