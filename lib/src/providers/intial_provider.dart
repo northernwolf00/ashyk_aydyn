@@ -6,12 +6,10 @@ class InitialProvider with ChangeNotifier {
   final CatigorysRepository useCase = CatigorysRepository();
   bool isLoading = false;
   bool waiting = false;
-
   List<DataItem> initial = [];
 
   Future<void> fetchCatigorys() async {
     final result = await useCase.fetchData();
-
     isLoading = true;
     notifyListeners();
     if (result.statusCode == 200) {
@@ -19,7 +17,6 @@ class InitialProvider with ChangeNotifier {
         initial = List<DataItem>.from(result.data['data'].map((e) {
           return DataItem.fromJson(e);
         }));
-
         isLoading = false;
         notifyListeners();
       }

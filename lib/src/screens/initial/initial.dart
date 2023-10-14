@@ -1,7 +1,7 @@
-import 'package:ashyk_aydyn_com/src/screens/initial/providers/file_provider.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/providers/intial_provider.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/providers/new_videos_provider.dart';
-import 'package:ashyk_aydyn_com/src/screens/initial/providers/subcaigory_provider.dart';
+import 'package:ashyk_aydyn_com/src/providers/file_provider.dart';
+import 'package:ashyk_aydyn_com/src/providers/intial_provider.dart';
+import 'package:ashyk_aydyn_com/src/providers/new_videos_provider.dart';
+import 'package:ashyk_aydyn_com/src/providers/subcaigory_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -36,6 +36,30 @@ class _InitialState extends State<Initial> {
   Widget build(BuildContext context) {
     // final myViewModel = context.watch<InitialProvider>();
     // final newVideos = context.watch<NewVideosProvider>();
-    return const Scaffold();
+    return Scaffold(
+      body: SafeArea(
+          child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 200,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  // physics: const NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 9,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black)),
+                      width: 100,
+                      child: index == 7 ? Icon(Icons.abc) : Text('data'),
+                    );
+                  }),
+            ),
+          ],
+        ),
+      )),
+    );
   }
 }
