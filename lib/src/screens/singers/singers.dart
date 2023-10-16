@@ -26,19 +26,23 @@ class _SingersState extends State<Singers> {
       ),
       body: SafeArea(
         child: GridView.builder(
+          padding: const EdgeInsets.only(bottom: 10, right: 10, top: 8),
           itemCount: myViewModel.initial[0].subcategories.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, // number of items in each row
+            crossAxisSpacing: 2.0,
+            mainAxisSpacing: 8.0,
           ),
           itemBuilder: (BuildContext context, index) {
             return Container(
-              padding: EdgeInsets.only(top: 10),
-              height: 150,
-              width: 150,
+              width: 170,
+              padding: const EdgeInsets.only(left: 10,),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: Image.network(
-                    myViewModel.initial[0].subcategories[index].icon),
+                  myViewModel.initial[0].subcategories[index].icon,
+                  fit: BoxFit.cover,
+                ),
               ),
             );
           },

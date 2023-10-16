@@ -29,13 +29,13 @@ class FileModel {
     return FileModel(
       id: json['id'],
       title: json['title'],
-      image: json['image'],
+      image: json['image'] ?? "",
       fileUrl: json['file_url'],
       downloaded: json['downloaded'],
       preview: json['preview'],
       size: json['size'],
       fileType: json['filetype'],
-      description: json['description'],
+      description: json['description'] ?? "",
       wordAuthor: json['word_author'],
       soundAuthor: json['sound_author'],
     );

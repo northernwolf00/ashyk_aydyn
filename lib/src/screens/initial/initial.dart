@@ -2,6 +2,7 @@ import 'package:ashyk_aydyn_com/src/providers/file_provider.dart';
 import 'package:ashyk_aydyn_com/src/providers/intial_provider.dart';
 import 'package:ashyk_aydyn_com/src/providers/new_videos_provider.dart';
 import 'package:ashyk_aydyn_com/src/providers/subcaigory_provider.dart';
+import 'package:ashyk_aydyn_com/src/screens/initial/page/info_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,11 +26,6 @@ class _InitialState extends State<Initial> {
     await Provider.of<NewVideosProvider>(context, listen: false)
         .fetchNewVideos();
     // ignore: use_build_context_synchronously
-    await Provider.of<SubcatigoeyProvider>(context, listen: false)
-        .fetchSubcatigory(60);
-
-    // ignore: use_build_context_synchronously
-    await Provider.of<FileProvider>(context, listen: false).fetchFile(41);
   }
 
   @override
@@ -38,6 +34,15 @@ class _InitialState extends State<Initial> {
     final newVideos = context.watch<NewVideosProvider>();
     return Scaffold(
       appBar: AppBar(
+        title: const Center(
+          child: Text(
+            'AŞYK AÝDYŇ',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
+        ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         backgroundColor: Colors.white,
         elevation: 3,
@@ -58,29 +63,52 @@ class _InitialState extends State<Initial> {
                 ),
               ),
               SizedBox(
-                height: 250,
+                height: 240,
                 child: ListView.builder(
-                  padding: EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: newVideos.newVideos.length,
                   itemBuilder: (BuildContext context, indexx) {
-                    return Column(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(right: 10),
-                          height: 250,
-                          width: 170,
-                          child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15.0)),
-                            child: Image.network(
-                              newVideos.newVideos[indexx].image,
-                              fit: BoxFit.cover,
+                    return InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                InfoPage(id: newVideos.newVideos[indexx].id),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(right: 10),
+                            height: 210,
+                            width: 170,
+                            child: ClipRRect(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(15.0)),
+                              child: Image.network(
+                                newVideos.newVideos[indexx].image,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: 5,
+                            ),
+                            child: Text(
+                              newVideos.newVideos[indexx].title,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   },
                 ),
@@ -105,7 +133,7 @@ class _InitialState extends State<Initial> {
                         ),
                       ),
                       SizedBox(
-                        height: 220,
+                        height: 240,
                         child: ListView.builder(
                           padding: const EdgeInsets.only(left: 10),
                           shrinkWrap: true,
@@ -114,9 +142,10 @@ class _InitialState extends State<Initial> {
                               myViewModel.initial[index].subcategories.length,
                           itemBuilder: (BuildContext context, indexx) {
                             return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  padding: EdgeInsets.only(right: 10),
+                                  padding: const EdgeInsets.only(right: 10),
                                   height: 210,
                                   width: 170,
                                   child: ClipRRect(
@@ -125,6 +154,19 @@ class _InitialState extends State<Initial> {
                                       myViewModel.initial[index]
                                           .subcategories[indexx].icon,
                                       fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: 5,
+                                  ),
+                                  child: Text(
+                                    myViewModel.initial[index]
+                                        .subcategories[indexx].title,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ),
