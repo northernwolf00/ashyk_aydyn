@@ -74,8 +74,10 @@ class _InitialState extends State<Initial> {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) =>
-                                InfoPage(id: newVideos.newVideos[indexx].id),
+                            builder: (context) => InfoPage(
+                              id: newVideos.newVideos[indexx].id,
+                              url: newVideos.newVideos[indexx].fileUrl,
+                            ),
                           ),
                         );
                       },

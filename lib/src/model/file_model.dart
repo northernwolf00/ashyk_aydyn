@@ -27,7 +27,7 @@ class FileModel {
 
   factory FileModel.fromJson(Map<String, dynamic> json) {
     return FileModel(
-      id: json['id'],
+      id: json['id'] ?? 0,
       title: json['title'],
       image: json['image'] ?? "",
       fileUrl: json['file_url'],
