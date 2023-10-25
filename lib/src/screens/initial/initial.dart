@@ -1,7 +1,6 @@
-import 'package:ashyk_aydyn_com/src/providers/file_provider.dart';
 import 'package:ashyk_aydyn_com/src/providers/intial_provider.dart';
 import 'package:ashyk_aydyn_com/src/providers/new_videos_provider.dart';
-import 'package:ashyk_aydyn_com/src/providers/subcaigory_provider.dart';
+import 'package:ashyk_aydyn_com/src/screens/initial/page/detail_page.dart';
 import 'package:ashyk_aydyn_com/src/screens/initial/page/info_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -98,12 +97,12 @@ class _InitialState extends State<Initial> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                               top: 5,
                             ),
                             child: Text(
                               newVideos.newVideos[indexx].title,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -146,27 +145,36 @@ class _InitialState extends State<Initial> {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  padding: const EdgeInsets.only(right: 10),
-                                  height: 210,
-                                  width: 170,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.network(
-                                      myViewModel.initial[index]
-                                          .subcategories[indexx].icon,
-                                      fit: BoxFit.cover,
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) =>   DetailPage( id: myViewModel.initial[index].subcategories[indexx].id,),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.only(right: 10),
+                                    height: 210,
+                                    width: 170,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Image.network(
+                                        myViewModel.initial[index]
+                                            .subcategories[indexx].icon,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                     top: 5,
                                   ),
                                   child: Text(
                                     myViewModel.initial[index]
                                         .subcategories[indexx].title,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
                                     ),

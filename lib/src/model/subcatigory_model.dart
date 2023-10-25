@@ -19,7 +19,7 @@ class SubcatogoryModel {
 
   factory SubcatogoryModel.fromJson(Map<String, dynamic> json) {
     final List<dynamic> images = json['images'];
-    final List<dynamic> musics = json['musics'];
+    final List<dynamic> musics = json['musics']?? [];
     final List<dynamic> videos = json['videos'];
 
     final List<VideoItem> videoItems =

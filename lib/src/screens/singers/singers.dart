@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/intial_provider.dart';
+import '../initial/page/detail_page.dart';
 
 class Singers extends StatefulWidget {
   const Singers({super.key});
@@ -34,14 +35,27 @@ class _SingersState extends State<Singers> {
             mainAxisSpacing: 8.0,
           ),
           itemBuilder: (BuildContext context, index) {
-            return Container(
-              width: 170,
-              padding: const EdgeInsets.only(left: 10,),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(18),
-                child: Image.network(
-                  myViewModel.initial[0].subcategories[index].icon,
-                  fit: BoxFit.cover,
+            return InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => DetailPage(
+                      id: myViewModel.initial[0].subcategories[index].id,
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                width: 170,
+                padding: const EdgeInsets.only(
+                  left: 10,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(18),
+                  child: Image.network(
+                    myViewModel.initial[0].subcategories[index].icon,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             );
